@@ -23,13 +23,13 @@ include_once("tateti.php");
  
  
  
-/** Modulo para solicitar numero
+/** Modulo para solicitar numero solicitarValor
  * @param int $min ; $max
  * @return int
  */
 $min = 1;
 $max = 7;
- function solicitarValor(){
+function solicitarValor(){
     $min = 1;
     $max = 7;
 do {
@@ -46,7 +46,7 @@ do {
  }
  
  
-/** Función para el menu de opciones
+/** Función para el menu de opciones seleccionarOpcion
 * int $numero
 * return void
 *
@@ -60,8 +60,7 @@ echo " Menú de opciones:
      5) Mostrar resumen de Jugador
      6) Mostrar listado de juegos Ordenado por jugador O
      7) salir
-     Elige una opción:
-    ";
+     Elige una opción: ";
     $numero = SolicitarValor();
  
 return $numero;

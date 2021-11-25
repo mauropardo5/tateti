@@ -21,7 +21,68 @@ include_once("tateti.php");
 /***** DEFINICION DE FUNCIONES ********/
 /**************************************/
  
- 
+ /*FUNCION cargarJuegos
+ en esta funcion se cargaran la lista de juegos 
+jugadorCruz	jugadorCirculo	puntosCruz	puntosCirculo
+return array*/
+
+function cargarJuegos(){
+    $coleccionDeJuegos = [];
+    $coleccionDeJuegos[0]= ["jugadorCruz"=>"juan" ,	 
+                            "jugadorCirculo"=> "martin" ,
+                            "puntosCruz"=>5 ,
+                            "puntosCirculo"=>0];
+    
+    $coleccionDeJuegos[1]=[ "jugadorCruz"=>"facu" ,	 
+                            "jugadorCirculo"=> "enzo" ,
+                            "puntosCruz"=>0 ,
+                            "puntosCirculo"=>4];
+    
+    $coleccionDeJuegos[2]=[ "jugadorCruz"=>"martin" ,	 
+                            "jugadorCirculo"=> "juan" ,
+                            "puntosCruz"=>1 ,
+                            "puntosCirculo"=>1];
+    
+    $coleccionDeJuegos[3]= ["jugadorCruz"=>"matias" ,	 
+                            "jugadorCirculo"=> "facu" ,
+                            "puntosCruz"=>0 ,
+                            "puntosCirculo"=>4];
+    
+    $coleccionDeJuegos[4]=[ "jugadorCruz"=>"martin" ,	 
+                            "jugadorCirculo"=> "facu" ,
+                            "puntosCruz"=>5 ,
+                            "puntosCirculo"=>0];
+    
+    $coleccionDeJuegos[5]=[ "jugadorCruz"=>"juan" ,	 
+                            "jugadorCirculo"=> "martin" ,
+                            "puntosCruz"=>1 ,
+                            "puntosCirculo"=>1];
+    
+    $coleccionDeJuegos[6]=[ "jugadorCruz"=>"marta" ,	 
+                            "jugadorCirculo"=> "matias" ,
+                            "puntosCruz"=>0 ,
+                            "puntosCirculo"=>5];
+    
+    $coleccionDeJuegos[7]=[ "jugadorCruz"=>"maxi" ,	 
+                            "jugadorCirculo"=> "enzo" ,
+                            "puntosCruz"=>4 ,
+                            "puntosCirculo"=>0];
+    
+    $coleccionDeJuegos[8]=[ "jugadorCruz"=>"matias" ,	 
+                            "jugadorCirculo"=> "maxi" ,
+                            "puntosCruz"=>4 ,
+                            "puntosCirculo"=>0];
+    
+    $coleccionDeJuegos[9]=[ "jugadorCruz"=>"matias" ,	 
+                            "jugadorCirculo"=> "maxi" ,
+                            "puntosCruz"=>1 ,
+                            "puntosCirculo"=>1];
+    
+    return ($coleccionDeJuegos) ;
+    
+    }
+    
+    
  
 /** Modulo para solicitar numero solicitarValor
  * @param int $min ; $max

@@ -22,6 +22,35 @@ include_once("tateti.php");
 /**************************************/
 
 
+function indiceGanador($coleccion, $nombreJugador){
+    //int $indice, $i  
+    //boolean $flag
+   $i=0;
+   $flag = true;
+   
+   do{
+       if($coleccion[$i]["jugadorCruz"] == $nombreJugador){
+          if($coleccion[$i]["puntosCruz"]>$coleccion[$i]["puntosCirculo"]){
+              $indice = $i;
+              $flag = false;
+          }
+       }elseif($coleccion[$i]["jugadorCirculo"] == $nombreJugador){
+           if($coleccion[$i]["puntosCruz"]<$coleccion[$i]["puntosCirculo"]){
+              $indice = $i;
+              $flag = false;
+          }
+       }
+   
+       if($i >= count($coleccion)){
+          $flag = false;
+          $indice = -1; //en caso de que no haya ganado ninguna
+       }
+       $i++;
+      }while($flag);
+      
+      return $indice;
+   }
+
 /** Funcion que retorna la cantidad de juegos ganados sin importar si es X o O
  * @param array $galeriaJuegos // funcion resumenJugador
  * @return int

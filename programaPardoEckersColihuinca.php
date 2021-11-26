@@ -20,7 +20,37 @@ include_once("tateti.php");
 /**************************************/
 /***** DEFINICION DE FUNCIONES ********/
 /**************************************/
- 
+
+
+/*FUNCION elegirSimbolo
+ en esta funcion solicita al jugador elegir entre X (cruz) o O (circulo)
+ STRING  $cruz , $circulo
+ RETORNO String*/
+
+ function elegirSimbolo(){
+    $cruz = "X";
+    $circulo= "O";
+    do {
+    echo "Seleccione el simbolo que desee utilizar (X: cruz - O: circulo):";
+    $simbolo = trim(fgets(STDIN));
+    $simbolo = strtoupper($simbolo);
+        if ($simbolo == $cruz) {
+            return $simbolo;
+        }elseif ($simbolo == $circulo) {
+            return $simbolo;
+        }else {
+            echo "El simbolo ingresado no es correcto, ingreselo nuevamente:";
+        }
+    } while ($simbolo != $cruz or $simbolo != $circulo);
+     
+    
+
+
+ }
+
+
+
+
  /*FUNCION cargarJuegos
  en esta funcion se cargaran la lista de juegos 
 jugadorCruz	jugadorCirculo	puntosCruz	puntosCirculo

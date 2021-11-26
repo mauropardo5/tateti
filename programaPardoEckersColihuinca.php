@@ -92,6 +92,9 @@ function resumenJugador()
     $resumenJugador[0] = ["nombre" => "juan" , "juegosGanados" => 1 , "juegosPerdidos" => 0 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
     $resumenJugador[1] = ["nombre" => "martin" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
     $resumenJugador[2] = ["nombre" => "matias" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 6];
+    $resumenJugador[3] = ["nombre" => "facundo" , "juegosGanados" => 1 , "juegosPerdidos" => 2 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
+    $resumenJugador[4] = ["nombre" => "enzo" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
+    $resumenJugador[1] = ["nombre" => "maxi" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 5];
 
     return ($resumenJugador);
 }

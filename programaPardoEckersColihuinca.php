@@ -81,8 +81,21 @@ function cargarJuegos(){
     return ($coleccionDeJuegos) ;
     
     }
-    
-    
+ 
+/*Funcion resumen de un Jugador
+* @param void
+* @return array
+ */
+function resumenJugador()
+{
+    $resumenJugador = [];
+    $resumenJugador[0] = ["nombre" => "juan" , "juegosGanados" => 1 , "juegosPerdidos" => 0 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
+    $resumenJugador[1] = ["nombre" => "martin" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
+    $resumenJugador[2] = ["nombre" => "matias" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 6];
+
+    return ($resumenJugador);
+}
+
  
 /** Modulo para solicitar numero solicitarValor
  * @param int $min ; $max

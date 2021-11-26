@@ -25,7 +25,7 @@ include_once("tateti.php");
 /*FUNCION elegirSimbolo
  en esta funcion solicita al jugador elegir entre X (cruz) o O (circulo)
  STRING  $cruz , $circulo
- RETORNO String*/
+ RETORNO STRING*/
 
  function elegirSimbolo(){
     $cruz = "X";
@@ -43,8 +43,6 @@ include_once("tateti.php");
         }
     } while ($simbolo != $cruz or $simbolo != $circulo);
      
-    
-
 
  }
 

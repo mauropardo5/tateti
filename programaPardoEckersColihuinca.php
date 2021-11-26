@@ -189,6 +189,19 @@ function mostrarJuego($juegos){
 }
 
 
+/**FUNCION agregarJuego
+ * en esta funcion se agregara un juego nuevo en el array $coleccionJuegos
+ *  @param array $totalJuegos($coleccionJuegos) , $juegoNuevo($juego)
+ *   @return array
+ */
+
+ function agregarJuego($totalJuegos, $juegoNuevo){
+     //int $r
+      $r = count($totalJuegos);
+      $totalJuegos[$r]= $juegoNuevo;
+      return $totalJuegos;
+ }
+
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/

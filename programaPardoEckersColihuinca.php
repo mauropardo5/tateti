@@ -22,33 +22,44 @@ include_once("tateti.php");
 /**************************************/
 
 
-function indiceGanador($coleccion, $nombreJugador){
+/** funcion primerJuegoGanado
+ * muestra la primera partida que un jugador gano, en caso de no ganar ninguna  muestra -1.
+	*@param array $partidasTotales($coleccionDeJuegos)
+	*@param string $nombreJugador
+    *@return int $indice
+*/
+
+
+function primerJuegoGanado($partidasTotales, $nombreJugador){
     //int $indice, $i  
     //boolean $flag
-   $i=0;
-   $flag = true;
+   
+    $i=0;
+    $flag = true;
    
    do{
-       if($coleccion[$i]["jugadorCruz"] == $nombreJugador){
-          if($coleccion[$i]["puntosCruz"]>$coleccion[$i]["puntosCirculo"]){
+       if($partidasTotales[$i]["jugadorCruz"] == $nombreJugador){
+          if($partidasTotales[$i]["puntosCruz"]>$partidasTotales[$i]["puntosCirculo"]){
               $indice = $i;
               $flag = false;
           }
-       }elseif($coleccion[$i]["jugadorCirculo"] == $nombreJugador){
-           if($coleccion[$i]["puntosCruz"]<$coleccion[$i]["puntosCirculo"]){
+       }elseif($partidasTotales[$i]["jugadorCirculo"] == $nombreJugador){
+           if($partidasTotales[$i]["puntosCruz"]<$partidasTotales[$i]["puntosCirculo"]){
               $indice = $i;
               $flag = false;
           }
        }
    
-       if($i >= count($coleccion)){
+       if($i >= count($partidasTotales)){
           $flag = false;
-          $indice = -1; //en caso de que no haya ganado ninguna
+          $indice = -1; 
        }
-       $i++;
-      }while($flag);
-      
-      return $indice;
+       $i =$i+1;
+
+      }
+    while($flag);
+     
+return $indice;
    }
 
 /** Funcion que retorna la cantidad de juegos ganados sin importar si es X o O

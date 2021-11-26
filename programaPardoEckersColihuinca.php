@@ -22,6 +22,23 @@ include_once("tateti.php");
 /**************************************/
 
 
+/** Funcion que retorna la cantidad de juegos ganados sin importar si es X o O
+ * @param array $galeriaJuegos // funcion resumenJugador
+ * @return int
+ */
+function juegosGanados($galeriaJuegos){
+    $variableSuma = 0;
+    $variableAuxiliar = $galeriaJuegos;
+    $contador = count($variableAuxiliar);
+    for ($numero =0; $numero < $contador  ; $numero ++) {
+    if ($variableAuxiliar[$numero]["juegosGanados"]== 1) {
+        $variableSuma = $variableSuma + 1;
+    }
+    }
+    return $variableSuma;
+    }
+
+
 /*FUNCION elegirSimbolo
  en esta funcion solicita al jugador elegir entre X (cruz) o O (circulo)
  STRING  $cruz , $circulo

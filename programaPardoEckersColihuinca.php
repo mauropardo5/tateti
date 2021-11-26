@@ -63,17 +63,17 @@ function cargarJuegos(){
                             "puntosCruz"=>0 ,
                             "puntosCirculo"=>5];
     
-    $coleccionDeJuegos[7]=[ "jugadorCruz"=>"maxi" ,	 
+    $coleccionDeJuegos[7]= [ "jugadorCruz"=>"maxi" ,	 
                             "jugadorCirculo"=> "enzo" ,
                             "puntosCruz"=>4 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[8]=[ "jugadorCruz"=>"matias" ,	 
+    $coleccionDeJuegos[8]= [ "jugadorCruz"=>"matias" ,	 
                             "jugadorCirculo"=> "maxi" ,
                             "puntosCruz"=>4 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[9]=[ "jugadorCruz"=>"matias" ,	 
+    $coleccionDeJuegos[9]= [ "jugadorCruz"=>"matias" ,	 
                             "jugadorCirculo"=> "maxi" ,
                             "puntosCruz"=>1 ,
                             "puntosCirculo"=>1];
@@ -141,6 +141,49 @@ function seleccionarOpción(){
 return $numero;
 }
  
+
+/**funcion mostrarJuego
+ * se encarga de agregar un juego mas al array total de juegos.
+ * param array  $juegos
+ */
+function mostrarJuego($juegos){
+    // STRING $ganoX,$ganoO, $empate
+    $ganoX = "gano X ";
+    $ganoO= "gano O ";
+    $empate = "Empate ";
+    $acumuladorGanador = "";
+    do{
+        echo "elija el numero de juego que quiere mostrar ";
+        $numeroDeJuego = trim(fgets(STDIN));
+        if($numeroDeJuego >=1 && $numeroDeJuego <= 10 ){
+            $juegoSeleccionado = $juegos ;
+            $numeroAuxiliar= $numeroDeJuego -1;
+            if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=4 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=5){
+                $acumuladorGanador = $ganoX;
+            } 
+            elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] = 1){
+                $acumuladorGanador = $empate;
+            }
+            else{
+                $acumuladorGanador = $ganoO;
+
+            }
+            
+            echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
+            "\n Jugador X:". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
+            "\n Jugador O:". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"];
+
+
+
+        }
+        else{
+            echo "ese numero de juego no se encuentra en el sistema. digite nuevamente. ";
+        }
+    
+
+       
+    }   while ($numeroDeJuego< 1 || $numeroDeJuego > 10);
+}
 
 
 /**************************************/

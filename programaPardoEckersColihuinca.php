@@ -273,7 +273,32 @@ function mostrarJuego($juegos){
     }   while ($numeroDeJuego< 1 || $numeroDeJuego > 10);
 }
 
-
+/* 
+*  @param array $juegosSimbolos//funcion cargarJuegos
+* @param string $simbolo
+* @return int
+*/
+function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
+    $simbolosJuegos = $juegosSimbolos;
+	$variableSimbolo = $simbolo;
+	$hasta = count($simbolosJuegos);
+	$variableAuxSuma = 0;
+    if($variableSimbolo == "X"){
+        for ($de =0; $de < $hasta  ; $de ++){
+            if($simbolosJuegos[$de]["puntosCruz"] >= 4){
+                $variableAuxSuma = $variableAuxSuma + 1;
+            }
+        }
+    }
+    else {
+        for($de =0; $de < $hasta  ; $de ++){
+            if($simbolosJuegos[$de]["puntosCirculo"] >= 4){
+                $variableAuxSuma = $variableAuxSuma + 1;
+            }
+        }
+    }
+    return $variableAuxSuma;
+}
 /**FUNCION agregarJuego
  * en esta funcion se agregara un juego nuevo en el array $coleccionJuegos
  *  @param array $totalJuegos($coleccionJuegos) , $juegoNuevo($juego)

@@ -22,6 +22,7 @@ include_once("tateti.php");
 /**************************************/
 
 
+
 /** funcion primerJuegoGanado
  * muestra la primera partida que un jugador gano, en caso de no ganar ninguna  muestra -1.
 	*@param array $partidasTotales($coleccionDeJuegos)
@@ -71,7 +72,7 @@ function juegosGanados($galeriaJuegos){
     $variableAuxiliar = $galeriaJuegos;
     $contador = count($variableAuxiliar);
     for ($numero =0; $numero < $contador  ; $numero ++) {
-    if ($variableAuxiliar[$numero]["juegosGanados"]<= 1) {
+    if ($variableAuxiliar[$numero]["juegosGanados"]== 1) {
         $variableSuma = $variableSuma + 1;
     }
     }
@@ -90,7 +91,7 @@ function juegosGanados($galeriaJuegos){
     do {
     echo "Seleccione el simbolo que desee utilizar (X: cruz - O: circulo):";
     $simbolo = trim(fgets(STDIN));
-    $simbolo = strtoupper($simbolo);
+    $simbolo = strtoupper($simbolo); //funcion para que convierta en mayuscula
         if ($simbolo == $cruz) {
             return $simbolo;
         }elseif ($simbolo == $circulo) {

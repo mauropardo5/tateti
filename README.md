@@ -12,4 +12,4 @@ Universidad del Comahue
 
 - **Pardo Mauro Sebastián** - Legajo 3570 - MAIL: mauro.pardo@est.fi.uncoma.edu.ar - Usuario github: mauropardo5
 - **Colihuinca Maximiliano Ezequiel** - Legajo 3697 - MAIL: maximiliano.colihuinca@est.uncoma.edu.ar - Usuario: Zekecolin
-- **Eckers Patricio** - Legajo 3548 - MAIL: patricioeckers@gmail.com - Usuario:
+- **Eckers Patricio** - Legajo 3548 - MAIL: patricioeckers@gmail.com - Usuario:patricioeckersfai-3548 

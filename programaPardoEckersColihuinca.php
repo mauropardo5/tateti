@@ -274,7 +274,7 @@ function mostrarJuego($juegos){
 }
 
 /* 
-*  @param array $juegosSimbolos//funcion cargarJuegos
+* @param array $juegosSimbolos//funcion cargarJuegos
 * @param string $simbolo
 * @return int
 */

@@ -71,7 +71,7 @@ function juegosGanados($galeriaJuegos){
     $variableAuxiliar = $galeriaJuegos;
     $contador = count($variableAuxiliar);
     for ($numero =0; $numero < $contador  ; $numero ++) {
-    if ($variableAuxiliar[$numero]["juegosGanados"]== 1) {
+    if ($variableAuxiliar[$numero]["juegosGanados"]<= 1) {
         $variableSuma = $variableSuma + 1;
     }
     }

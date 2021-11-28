@@ -21,8 +21,40 @@ include_once("tateti.php");
 /***** DEFINICION DE FUNCIONES ********/
 /**************************************/
 
+/**
+ * Esta funcion compara la clave "jugadorCirculo" del array principal y retorna un valor segun la relacion entre estas
+ * @param array $a
+ * @param array $b
+ * @return int
+ */
+function cmp($a, $b){
+    //int $orden
+    if($a["jugadorCirculo"]== $b["jugadorCirculo"]){
+        $orden = 0; 
+    } elseif($a["jugadorCirculo"]<$b["jugadorCirculo"]){
+        $orden = -1;
+    } else{
+        $orden = 1;
+    }
+    return $orden;
+
+<<<<<<< HEAD
+
+=======
+}
 
 
+
+/**
+ * funcion Esta funcion ordena por nombre usando la funcion uasort
+ * @param array $juegosT
+ */
+function ordenarAlfabeticamente($juegosT){
+// uasort nos ordena la coleccion de juegos con la función "cmp"
+uasort($juegosT, 'cmp'); 
+print_r($juegosT);
+}
+>>>>>>> 08bcef0b1909a9631f651469cdc82a739a97830d
 /** funcion primerJuegoGanado
  * muestra la primera partida que un jugador gano, en caso de no ganar ninguna  muestra -1.
 	*@param array $partidasTotales($coleccionDeJuegos)

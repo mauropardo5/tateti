@@ -314,6 +314,7 @@ function mostrarJuego($juegos){
 function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
     $simbolosJuegos = $juegosSimbolos;
 	$variableSimbolo = $simbolo;
+    $variableSimbolo = strtoupper($variableSimbolo);
 	$hasta = count($simbolosJuegos);
 	$variableAuxSuma = 0;
     if($variableSimbolo == "X"){

@@ -38,12 +38,7 @@ function cmp($a, $b){
     }
     return $orden;
 
-<<<<<<< HEAD
-
-=======
 }
-
-
 
 /**
  * funcion Esta funcion ordena por nombre usando la funcion uasort
@@ -54,7 +49,8 @@ function ordenarAlfabeticamente($juegosT){
 uasort($juegosT, 'cmp'); 
 print_r($juegosT);
 }
->>>>>>> 08bcef0b1909a9631f651469cdc82a739a97830d
+
+
 /** funcion primerJuegoGanado
  * muestra la primera partida que un jugador gano, en caso de no ganar ninguna  muestra -1.
 	*@param array $partidasTotales($coleccionDeJuegos)

@@ -215,12 +215,13 @@ function resumenJugador()
 
  
 /** Modulo para solicitar numero solicitarValor
- * @param int $min ; $max
+ * @param void
  * @return int
  */
-$min = 1;
-$max = 7;
+
 function solicitarValor(){
+    // $min y $max nos marcan el rango de numeros que pueden seleccionarse
+    // int $min , $max.
     $min = 1;
     $max = 7;
     do {
@@ -253,6 +254,7 @@ function seleccionarOpción(){
         6) Mostrar listado de juegos Ordenado por jugador O
         7) salir
         Elige una opción: ";
+        //utilizamos una funcion para solicitar el numero correcto de retorno
     $numero = SolicitarValor();
  
 return $numero;
@@ -260,7 +262,7 @@ return $numero;
  
 
 /**funcion mostrarJuego
- * se encarga de agregar un juego mas al array total de juegos.
+ * se encarga de agregar un juego más al  total de juegos.
  * param array  $juegos
  */
 function mostrarJuego($juegos){
@@ -270,7 +272,7 @@ function mostrarJuego($juegos){
     $empate = "Empate ";
     $acumuladorGanador = "";
     do{
-        echo "elija el numero de juego que quiere mostrar ";
+        echo "elija el numero de juego que quiere mostrar:  ";
         $numeroDeJuego = trim(fgets(STDIN));
         if($numeroDeJuego >=1 && $numeroDeJuego <= 10 ){
             $juegoSeleccionado = $juegos ;
@@ -287,8 +289,8 @@ function mostrarJuego($juegos){
             }
             
             echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
-            "\n Jugador X:". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
-            "\n Jugador O:". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"];
+            "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar][" puntosCruz "] . " puntos ". 
+            "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar][" puntosCirculo "];
 
 
 
@@ -346,7 +348,13 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/
 
-
+/**
+ * int $opcion, $mostraJuego, $i, $games, $number, $limite, $variable, $variable1, $variable2, $variable3 
+ * string $nombreJugador, $simb
+ * bolean
+ * float $porcentaje
+ * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, $ordenAlfa 
+ */
 do {
     $juegos = cargarJuegos();
     $opcion = seleccionarOpción();
@@ -357,13 +365,15 @@ do {
  		$juego = jugar();
             break;
         case 2:
-		$juegos = cargarJuegos();
+		
 		$mostraUnJuego = mostrarJuego($juegos);
             break;
         case 3:
 		echo "Ingrese el nombre de un jugador: ";
 		$nombreJugador = trim(fgets(STDIN));	
 		$mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
+        $i = $mostraJuego + 1;
+        echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
             break;
       case 4:
 		echo "Ingrese un símbolo (X o O): ";
@@ -373,7 +383,7 @@ do {
 		$games = count($juegos);
    //FLOAT 
         $porcentaje = ($number * 100 )/ $games;
-		echo "El simbolo". $simb. " gano el ". $porcentaje. "% de los juegos";
+		echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
         break;
 	case 5:
 		//variablesAuxiliares
@@ -401,7 +411,7 @@ do {
          break;
 
          case 7;
-         echo "fin del programa";
+         echo "Fin del programa";
          break;
 		
  

@@ -346,6 +346,68 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/
 
+
+do {
+    $juegos = cargarJuegos();
+    $opcion = seleccionarOpción();
+ 
+   
+    switch ($opcion) {
+        case 1:
+ 		$juego = jugar();
+            break;
+        case 2:
+		$juegos = cargarJuegos();
+		$mostraUnJuego = mostrarJuego($juegos);
+            break;
+        case 3:
+		echo "Ingrese el nombre de un jugador: ";
+		$nombreJugador = trim(fgets(STDIN));	
+		$mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
+            break;
+      case 4:
+		echo "Ingrese un símbolo (X o O): ";
+		$simb = trim(fgets(STDIN));
+          
+		$number = juegosGanadosSimbolo($juegos, $simb);
+		$games = count($juegos);
+   //FLOAT 
+        $porcentaje = ($number * 100 )/ $games;
+		echo "El simbolo". $simb. " gano el ". $porcentaje. "% de los juegos";
+        break;
+	case 5:
+		//variablesAuxiliares
+		$variable = 0;
+		$variable1 = 0;
+		$variable2 = 0;
+		$variable3 = 0;
+		echo "Ingrese el nombre del jugador: ";
+		$nombreJugador = trim(fgets(STDIN));
+		$jugadorResumen = resumenJugador();
+		$limite = count($jugadorResumen);
+		for ($n = 0; $n < $limite  ; $n ++){
+			if($jugadorResumen[$n]["nombre"] = $nombreJugador){
+			   $variable = $jugadorResumen[$n]["juegosGanados"];
+			  $variable1 = $jugadorResumen[$n]["juegosPerdidos"];
+			 $variable2 = $jugadorResumen[$n]["JuegosEmpatados"];
+			  $variable3 = $jugadorResumen[$n]["puntAcumulados"];
+ 			}
+ 		  }
+		echo "Jugador: ". $nombreJugador. "\nGano: ". $variable. " Juegos". "\nPerdió: ". $variable1. " Juegos". "\nEmpato: ". $variable2. " Juegos". "\nTotal de puntos acumulados: ". $variable3;
+        break;
+        case 6:
+ 		$ordenAlfa 	= ordenarAlfabeticamente($juegos);
+
+         break;
+
+         case 7;
+         echo "fin del programa";
+         break;
+		
+ 
+ 
+    }
+} while ($opcion != 7 );
 //Declaración de variables:
 
 
@@ -354,7 +416,7 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 
 //Proceso:
 
-$juego = jugar();
+
 //print_r($juego);
 //imprimirResultado($juego);
 

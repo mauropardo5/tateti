@@ -400,6 +400,7 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 
 do {
     $juegos = cargarJuegos();
+     
     $opcion = seleccionarOpción();
  
    
@@ -510,3 +511,5 @@ do {
     }
 } while ($opcion != X);
 */
+
+//comentario

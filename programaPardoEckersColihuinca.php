@@ -202,9 +202,9 @@ function cargarJuegos(){
 * @param  string $nombreJugador
 * @return array
  */
-function resumenJugador($juegos,$nombreJugador){
+function resumenJugador($juegosTotales5,$nombreJugador){
     //int $totalJ, $ganados, $perdidos, $empatados, $puntos, $n
-     $totalJ=count($juegos);
+     $totalJ=count($juegosTotales5);
      $ganados = 0;
      $perdidos = 0;
      $empatados = 0;
@@ -214,29 +214,29 @@ function resumenJugador($juegos,$nombreJugador){
      for($n =0; $n< $totalJ ; $n++ ) {
      
          //averiguamos si el jugador solicitado jugo como CRUZ
-         if($nombreJugador== $juegos[$n]["jugadorCruz"]){
+         if($nombreJugador== $juegosTotales5[$n]["jugadorCruz"]){
              //averiguamos si gano , empato o perdio segun los puntos acumulados en la partida $n
-             if($juegos[$n]["puntosCruz"]>$juegos[$n]["puntosCirculo"]){
+             if($juegosTotales5[$n]["puntosCruz"]>$juegosTotales5[$n]["puntosCirculo"]){
                  $ganados= $ganados +1;
-                 $puntos = $puntos + $juegos[$n]["puntosCruz"];
-             }elseif ($juegos[$n]["puntosCruz"] == $juegos[$n]["puntosCirculo"]){
+                 $puntos = $puntos + $juegosTotales5[$n]["puntosCruz"];
+             }elseif ($juegosTotales5[$n]["puntosCruz"] == $juegosTotales5[$n]["puntosCirculo"]){
                  $empatados =$empatados +1;
-                 $puntos = $puntos +$juegos[$n]["puntosCruz"];
+                 $puntos = $puntos +$juegosTotales5[$n]["puntosCruz"];
  
              }else{
                  $perdidos=$perdidos +1;
              }
          }
          //en caso que haya jugado como circulo
-         elseif ($nombreJugador== $juegos[$n]["jugadorCirculo"]){
+         elseif ($nombreJugador== $juegosTotales5[$n]["jugadorCirculo"]){
              //averiguamos si gano , empato o perdio segun los puntos acumulados en la partida $n
  
-             if($juegos[$n]["puntosCirculo"]>$juegos[$n]["puntosCruz"]){
+             if($juegosTotales5[$n]["puntosCirculo"]>$juegosTotales5[$n]["puntosCruz"]){
                  $ganados= $ganados +1;
-                 $puntos = $puntos + $juegos[$n]["puntosCirculo"];
-             }elseif ($juegos[$n]["puntosCruz"] == $juegos[$n]["puntosCirculo"]){
+                 $puntos = $puntos + $juegosTotales5[$n]["puntosCirculo"];
+             }elseif ($juegosTotales5[$n]["puntosCruz"] == $juegosTotales5[$n]["puntosCirculo"]){
                  $empatados =$empatados +1;
-                 $puntos = $puntos +$juegos[$n]["puntosCirculo"];
+                 $puntos = $puntos +$juegosTotales5[$n]["puntosCirculo"];
  
              }else{
                  $perdidos=$perdidos +1;
@@ -405,7 +405,7 @@ do {
     switch ($opcion) {
         case 1:
  		$juego = jugar();
-         
+        
         
             break;
         case 2:
@@ -436,7 +436,17 @@ do {
 		$nombreJugador = trim(fgets(STDIN));
 		$jugadorResumen = resumenJugador($juegos, $nombreJugador);
 		
-        print_r($jugadorResumen);
+        $variable = 0;
+		$variable1 = 0;
+		$variable2 = 0;
+		$variable3 = 0;
+            if($jugadorResumen["nombre"] == $nombreJugador){
+              $variable = $jugadorResumen["juegosGanados"];
+              $variable1 = $jugadorResumen["juegosPerdidos"];
+              $variable2 = $jugadorResumen["juegosEmpatados"];
+              $variable3 = $jugadorResumen["puntos"];
+             }
+        
         
         break;
 

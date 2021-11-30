@@ -271,10 +271,12 @@ function mostrarJuego($juegos){
     $ganoO= "gano O ";
     $empate = "Empate ";
     $acumuladorGanador = "";
+    $t = count($juegos) ;
     do{
         echo "elija el numero de juego que quiere mostrar:  ";
         $numeroDeJuego = trim(fgets(STDIN));
-        if($numeroDeJuego >=1 && $numeroDeJuego <= 10 ){
+           
+        if($numeroDeJuego >=1 && $numeroDeJuego <= $t ){
             $juegoSeleccionado = $juegos ;
             $numeroAuxiliar= $numeroDeJuego -1;
             if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=4 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=5){
@@ -301,7 +303,7 @@ function mostrarJuego($juegos){
     
 
        
-    }   while ($numeroDeJuego< 1 || $numeroDeJuego > 10);
+    }   while ($numeroDeJuego< 1 || $numeroDeJuego > $t);
 }
 
 /* 
@@ -363,10 +365,11 @@ do {
     switch ($opcion) {
         case 1:
  		$juego = jugar();
+        
             break;
         case 2:
-		
-		$mostraUnJuego = mostrarJuego($juegos);
+            $juegos = agregarJuego($juegos, $juego);
+		    $mostraUnJuego = mostrarJuego($juegos);
             break;
         case 3:
 		echo "Ingrese el nombre de un jugador: ";

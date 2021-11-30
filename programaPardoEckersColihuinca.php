@@ -319,7 +319,7 @@ function mostrarJuego($juegos){
         if($numeroDeJuego >=1 && $numeroDeJuego <= $t ){
             $juegoSeleccionado = $juegos ;
             $numeroAuxiliar= $numeroDeJuego -1;
-            if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=4 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=5){
+            if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=2 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=6){
                 $acumuladorGanador = $ganoX;
             } 
             elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] = 1){
@@ -397,6 +397,7 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
  * float $porcentaje
  * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, 
  */
+
 do {
     $juegos = cargarJuegos();
     $opcion = seleccionarOpción();
@@ -404,45 +405,46 @@ do {
    
     switch ($opcion) {
         case 1:
- 		$juego = jugar();
+         $juego = jugar();
+
          print_r($juego);
-        imprimirResultado($juego);
+         imprimirResultado($juego);
 
         $juegos = agregarJuego($juegos, $juego);
         
             break;
         case 2:
             $juegosTot = agregarJuego($juegos, $juego);
-		    $mostraUnJuego = mostrarJuego($juegosTot);
+            $mostraUnJuego = mostrarJuego($juegosTot);
             break;
         case 3:
-		echo "Ingrese el nombre de un jugador: ";
-		$nombreJugador = trim(fgets(STDIN));	
-		$mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
+        echo "Ingrese el nombre de un jugador: ";
+        $nombreJugador = trim(fgets(STDIN));	
+        $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
         $i = $mostraJuego + 1;
         echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
             break;
       case 4:
-		echo "Ingrese un símbolo (X o O): ";
-		$simb = trim(fgets(STDIN));
+        echo "Ingrese un símbolo (X o O): ";
+        $simb = trim(fgets(STDIN));
           
-		$number = juegosGanadosSimbolo($juegos, $simb);
-		$games = count($juegos);
+        $number = juegosGanadosSimbolo($juegosTot, $simb);
+        $games = count($juegosTot);
    //FLOAT 
         $porcentaje = ($number * 100 )/ $games;
-		echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
+        echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
         break;
-	case 5:
-		//variablesAuxiliares
-		
-		echo "Ingrese el nombre del jugador: ";
-		$nombreJugador = trim(fgets(STDIN));
-		$jugadorResumen = resumenJugador($juegos, $nombreJugador);
-		
+    case 5:
+        //variablesAuxiliares
+        
+        echo "Ingrese el nombre del jugador: ";
+        $nombreJugador = trim(fgets(STDIN));
+        $jugadorResumen = resumenJugador($juegosTot, $nombreJugador);
+        
         $variable = 0;
-		$variable1 = 0;
-		$variable2 = 0;
-		$variable3 = 0;
+        $variable1 = 0;
+        $variable2 = 0;
+        $variable3 = 0;
             if($jugadorResumen["nombre"] == $nombreJugador){
               $variable = $jugadorResumen["juegosGanados"];
               $variable1 = $jugadorResumen["juegosPerdidos"];
@@ -457,18 +459,19 @@ do {
 
 
         case 6:
- 		$ordenAlfa 	= ordenarAlfabeticamente($juegos);
+         $ordenAlfa 	= ordenarAlfabeticamente($juegos);
 
          break;
 
          case 7;
          echo "Fin del programa";
          break;
-		
+        
  
  
     }
 } while ($opcion != 7 );
+
 //Declaración de variables:
 
 

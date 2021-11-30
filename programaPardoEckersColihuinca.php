@@ -291,8 +291,8 @@ function mostrarJuego($juegos){
             }
             
             echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
-            "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar][" puntosCruz "] . " puntos ". 
-            "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar][" puntosCirculo "];
+            "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
+            "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"]. " puntos";
 
 
 
@@ -365,6 +365,7 @@ do {
     switch ($opcion) {
         case 1:
  		$juego = jugar();
+         
         
             break;
         case 2:

@@ -285,7 +285,7 @@ function solicitarValor(){
 *
 */
 function seleccionarOpción(){
-    echo " Menú de opciones:
+    echo "\nMenú de opciones:
         1) Jugar al tateti
         2) Mostrar un juego
         3) Mostrar el primer juego ganador

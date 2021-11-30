@@ -446,6 +446,8 @@ do {
               $variable2 = $jugadorResumen["juegosEmpatados"];
               $variable3 = $jugadorResumen["puntos"];
              }
+
+         echo "Jugador: ". $nombreJugador. "\nGano: ". $variable. " Juegos". "\nPerdió: ". $variable1. " Juegos". "\nEmpato: ". $variable2. " Juegos". "\nTotal de puntos acumulados: ". $variable3;
         
         
         break;

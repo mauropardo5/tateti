@@ -197,21 +197,61 @@ function cargarJuegos(){
     }
  
 /*Funcion resumen de un Jugador
-* @param void
+* esta funcion nos muestra el resumen de partidas del jugador solicitado.
+* @param array $juegos
+* @param  string $nombreJugador
 * @return array
  */
-function resumenJugador()
-{
-    $coleccionJuegos = [];
-    $coleccionJuegos[0] = ["nombre" => "juan" , "juegosGanados" => 1 , "juegosPerdidos" => 0 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
-    $coleccionJuegos[1] = ["nombre" => "martin" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
-    $coleccionJuegos[2] = ["nombre" => "matias" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 6];
-    $coleccionJuegos[3] = ["nombre" => "facundo" , "juegosGanados" => 1 , "juegosPerdidos" => 2 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
-    $coleccionJuegos[4] = ["nombre" => "enzo" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
-    $coleccionJuegos[5] = ["nombre" => "maxi" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 5];
-
-    return ($coleccionJuegos);
-}
+function resumenJugador($juegos,$nombreJugador){
+    //int $totalJ, $ganados, $perdidos, $empatados, $puntos, $n
+     $totalJ=count($juegos);
+     $ganados = 0;
+     $perdidos = 0;
+     $empatados = 0;
+     $puntos =  0;
+     $resumenJ["nombre"]=$nombreJugador;
+ 
+     for($n =0; $n< $totalJ ; $n++ ) {
+     
+         //averiguamos si el jugador solicitado jugo como CRUZ
+         if($nombreJugador== $juegos[$n]["jugadorCruz"]){
+             //averiguamos si gano , empato o perdio segun los puntos acumulados en la partida $n
+             if($juegos[$n]["puntosCruz"]>$juegos[$n]["puntosCirculo"]){
+                 $ganados= $ganados +1;
+                 $puntos = $puntos + $juegos[$n]["puntosCruz"];
+             }elseif ($juegos[$n]["puntosCruz"] == $juegos[$n]["puntosCirculo"]){
+                 $empatados =$empatados +1;
+                 $puntos = $puntos +$juegos[$n]["puntosCruz"];
+ 
+             }else{
+                 $perdidos=$perdidos +1;
+             }
+         }
+         //en caso que haya jugado como circulo
+         elseif ($nombreJugador== $juegos[$n]["jugadorCirculo"]){
+             //averiguamos si gano , empato o perdio segun los puntos acumulados en la partida $n
+ 
+             if($juegos[$n]["puntosCirculo"]>$juegos[$n]["puntosCruz"]){
+                 $ganados= $ganados +1;
+                 $puntos = $puntos + $juegos[$n]["puntosCirculo"];
+             }elseif ($juegos[$n]["puntosCruz"] == $juegos[$n]["puntosCirculo"]){
+                 $empatados =$empatados +1;
+                 $puntos = $puntos +$juegos[$n]["puntosCirculo"];
+ 
+             }else{
+                 $perdidos=$perdidos +1;
+             }
+ 
+         }
+     }
+     //asignamos los datos obtenido a las claves de nuestro nuevo array, y lo retornamos
+     $resumenJ["juegosGanados"] = $ganados;
+     $resumenJ["juegosEmpatados"]=$empatados;
+     $resumenJ["juegosPerdidos"]= $perdidos;
+     $resumenJ["puntos"]=$puntos;
+ 
+     return $resumenJ;
+ }
 
  
 /** Modulo para solicitar numero solicitarValor
@@ -391,24 +431,16 @@ do {
         break;
 	case 5:
 		//variablesAuxiliares
-		$variable = 0;
-		$variable1 = 0;
-		$variable2 = 0;
-		$variable3 = 0;
+		
 		echo "Ingrese el nombre del jugador: ";
 		$nombreJugador = trim(fgets(STDIN));
-		$jugadorResumen = resumenJugador();
-		$limite = count($jugadorResumen);
-		for ($n = 0; $n < $limite  ; $n ++){
-			if($jugadorResumen[$n]["nombre"] == $nombreJugador){
-			  $variable = $jugadorResumen[$n]["juegosGanados"];
-			  $variable1 = $jugadorResumen[$n]["juegosPerdidos"];
-			  $variable2 = $jugadorResumen[$n]["JuegosEmpatados"];
-			  $variable3 = $jugadorResumen[$n]["puntAcumulados"];
- 			}
- 		  }
-		echo "Jugador: ". $nombreJugador. "\nGano: ". $variable. " Juegos". "\nPerdió: ". $variable1. " Juegos". "\nEmpato: ". $variable2. " Juegos". "\nTotal de puntos acumulados: ". $variable3;
+		$jugadorResumen = resumenJugador($juegos, $nombreJugador);
+		
+        print_r($jugadorResumen);
+        
         break;
+
+
         case 6:
  		$ordenAlfa 	= ordenarAlfabeticamente($juegos);
 

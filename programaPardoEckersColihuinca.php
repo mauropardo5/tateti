@@ -142,53 +142,53 @@ return array*/
 
 function cargarJuegos(){
     $coleccionDeJuegos = [];
-    $coleccionDeJuegos[0]= ["jugadorCruz"=>"juan" ,	 
-                            "jugadorCirculo"=> "martin" ,
+    $coleccionDeJuegos[0]= ["jugadorCruz"=>"JUAN" ,	 
+                            "jugadorCirculo"=> "MARTIN" ,
                             "puntosCruz"=>5 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[1]=[ "jugadorCruz"=>"facu" ,	 
-                            "jugadorCirculo"=> "enzo" ,
+    $coleccionDeJuegos[1]=[ "jugadorCruz"=>"FACU" ,	 
+                            "jugadorCirculo"=> "ENZO" ,
                             "puntosCruz"=>0 ,
                             "puntosCirculo"=>4];
     
-    $coleccionDeJuegos[2]=[ "jugadorCruz"=>"martin" ,	 
-                            "jugadorCirculo"=> "juan" ,
+    $coleccionDeJuegos[2]=[ "jugadorCruz"=>"MARTIN" ,	 
+                            "jugadorCirculo"=> "JUAN" ,
                             "puntosCruz"=>1 ,
                             "puntosCirculo"=>1];
     
-    $coleccionDeJuegos[3]= ["jugadorCruz"=>"matias" ,	 
-                            "jugadorCirculo"=> "facu" ,
+    $coleccionDeJuegos[3]= ["jugadorCruz"=>"MATIAS" ,	 
+                            "jugadorCirculo"=> "FACU" ,
                             "puntosCruz"=>0 ,
                             "puntosCirculo"=>4];
     
-    $coleccionDeJuegos[4]=[ "jugadorCruz"=>"martin" ,	 
-                            "jugadorCirculo"=> "facu" ,
+    $coleccionDeJuegos[4]=[ "jugadorCruz"=>"MARTIN" ,	 
+                            "jugadorCirculo"=> "FACU" ,
                             "puntosCruz"=>5 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[5]=[ "jugadorCruz"=>"juan" ,	 
-                            "jugadorCirculo"=> "martin" ,
+    $coleccionDeJuegos[5]=[ "jugadorCruz"=>"JUAN" ,	 
+                            "jugadorCirculo"=> "MARTIN" ,
                             "puntosCruz"=>1 ,
                             "puntosCirculo"=>1];
     
-    $coleccionDeJuegos[6]=[ "jugadorCruz"=>"marta" ,	 
-                            "jugadorCirculo"=> "matias" ,
+    $coleccionDeJuegos[6]=[ "jugadorCruz"=>"MARTA" ,	 
+                            "jugadorCirculo"=> "MATIAS"  ,
                             "puntosCruz"=>0 ,
                             "puntosCirculo"=>5];
     
-    $coleccionDeJuegos[7]= [ "jugadorCruz"=>"maxi" ,	 
-                            "jugadorCirculo"=> "enzo" ,
+    $coleccionDeJuegos[7]= [ "jugadorCruz"=>"MAXI" ,	 
+                            "jugadorCirculo"=> "ENZO" ,
                             "puntosCruz"=>4 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[8]= [ "jugadorCruz"=>"matias" ,	 
-                            "jugadorCirculo"=> "maxi" ,
+    $coleccionDeJuegos[8]= [ "jugadorCruz"=>"MATIAS"  ,	 
+                            "jugadorCirculo"=> "MAXI" ,
                             "puntosCruz"=>4 ,
                             "puntosCirculo"=>0];
     
-    $coleccionDeJuegos[9]= [ "jugadorCruz"=>"matias" ,	 
-                            "jugadorCirculo"=> "maxi" ,
+    $coleccionDeJuegos[9]= [ "jugadorCruz"=>"MATIAS"  ,	 
+                            "jugadorCirculo"=> "MAXI" ,
                             "puntosCruz"=>1 ,
                             "puntosCirculo"=>1];
     
@@ -410,7 +410,7 @@ do {
          print_r($juego);
          imprimirResultado($juego);
 
-        $juegos = agregarJuego($juegos, $juego);
+        $juegosTot = agregarJuego($juegos, $juego);
         
             break;
         case 2:
@@ -438,7 +438,8 @@ do {
         //variablesAuxiliares
         
         echo "Ingrese el nombre del jugador: ";
-        $nombreJugador = trim(fgets(STDIN));
+        $nombreJugador =strtoupper( trim(fgets(STDIN)));
+        
         $jugadorResumen = resumenJugador($juegosTot, $nombreJugador);
         
         $variable = 0;

@@ -405,12 +405,15 @@ do {
     switch ($opcion) {
         case 1:
  		$juego = jugar();
-        
+         print_r($juego);
+        imprimirResultado($juego);
+
+        $juegos = agregarJuego($juegos, $juego);
         
             break;
         case 2:
-            $juegos = agregarJuego($juegos, $juego);
-		    $mostraUnJuego = mostrarJuego($juegos);
+            $juegosTot = agregarJuego($juegos, $juego);
+		    $mostraUnJuego = mostrarJuego($juegosTot);
             break;
         case 3:
 		echo "Ingrese el nombre de un jugador: ";

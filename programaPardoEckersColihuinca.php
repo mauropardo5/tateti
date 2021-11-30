@@ -202,15 +202,15 @@ function cargarJuegos(){
  */
 function resumenJugador()
 {
-    $resumenJugador = [];
-    $resumenJugador[0] = ["nombre" => "juan" , "juegosGanados" => 1 , "juegosPerdidos" => 0 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
-    $resumenJugador[1] = ["nombre" => "martin" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
-    $resumenJugador[2] = ["nombre" => "matias" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 6];
-    $resumenJugador[3] = ["nombre" => "facundo" , "juegosGanados" => 1 , "juegosPerdidos" => 2 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
-    $resumenJugador[4] = ["nombre" => "enzo" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
-    $resumenJugador[5] = ["nombre" => "maxi" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 5];
+    $coleccionJuegos = [];
+    $coleccionJuegos[0] = ["nombre" => "juan" , "juegosGanados" => 1 , "juegosPerdidos" => 0 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
+    $coleccionJuegos[1] = ["nombre" => "martin" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 2 , "puntAcumulados" => 7];
+    $coleccionJuegos[2] = ["nombre" => "matias" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 6];
+    $coleccionJuegos[3] = ["nombre" => "facundo" , "juegosGanados" => 1 , "juegosPerdidos" => 2 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
+    $coleccionJuegos[4] = ["nombre" => "enzo" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 0 , "puntAcumulados" => 4];
+    $coleccionJuegos[5] = ["nombre" => "maxi" , "juegosGanados" => 1 , "juegosPerdidos" => 1 , "JuegosEmpatados" => 1 , "puntAcumulados" => 5];
 
-    return ($resumenJugador);
+    return ($coleccionJuegos);
 }
 
  
@@ -353,7 +353,7 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
  * string $nombreJugador, $simb
  * bolean
  * float $porcentaje
- * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, $ordenAlfa 
+ * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, 
  */
 do {
     $juegos = cargarJuegos();
@@ -396,10 +396,10 @@ do {
 		$jugadorResumen = resumenJugador();
 		$limite = count($jugadorResumen);
 		for ($n = 0; $n < $limite  ; $n ++){
-			if($jugadorResumen[$n]["nombre"] = $nombreJugador){
-			   $variable = $jugadorResumen[$n]["juegosGanados"];
+			if($jugadorResumen[$n]["nombre"] == $nombreJugador){
+			  $variable = $jugadorResumen[$n]["juegosGanados"];
 			  $variable1 = $jugadorResumen[$n]["juegosPerdidos"];
-			 $variable2 = $jugadorResumen[$n]["JuegosEmpatados"];
+			  $variable2 = $jugadorResumen[$n]["JuegosEmpatados"];
 			  $variable3 = $jugadorResumen[$n]["puntAcumulados"];
  			}
  		  }

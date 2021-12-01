@@ -79,7 +79,7 @@ function primerJuegoGanado($partidasTotales, $nombreJugador){
           }
        }
    
-       if($i >= count($partidasTotales)){
+       if($i +1 == count($partidasTotales)){
           $flag = false;
           $indice = -1; 
        }
@@ -381,13 +381,14 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 
  function agregarJuego($totalJuegos, $juegoNuevo){
      //int $r
-     if(isset($juego)) {
-         $r = count($totalJuegos);
-        $totalJuegos[$r]= $juegoNuevo;
-         return $totalJuegos;
-     } else{
-         return $totalJuegos;
+     if($juegoNuevo != null) {
+      //   $r = count($totalJuegos);
+      //  $totalJuegos[$r]= $juegoNuevo;
+      echo "entreif";
+      array_push($totalJuegos, $juegoNuevo);
+      print_r($totalJuegos);
      }
+     return $totalJuegos;
 
  }
 
@@ -402,7 +403,7 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
  * float $porcentaje
  * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, 
  */
-
+$juego=null;
 do {
     $juegos = cargarJuegos();
    
@@ -421,15 +422,20 @@ do {
         
         break;
         case 2:
-            $juego =[];
+            $juegos = agregarJuego($juegos, $juego);
             $mostraUnJuego = mostrarJuego($juegos);
             break;
         case 3:
         echo "Ingrese el nombre de un jugador: ";
         $nombreJugador = strtoupper(trim(fgets(STDIN)));	
         $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
-        $i = $mostraJuego + 1;
+        if ($mostraJuego == -1) {
+            echo "$nombreJugador no ganó ningun juego.";
+        }else {
+            $i = $mostraJuego + 1;
         echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
+        }
+        
             break;
       case 4:
         echo "Ingrese un símbolo (X o O): ";

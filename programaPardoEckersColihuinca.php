@@ -381,9 +381,14 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 
  function agregarJuego($totalJuegos, $juegoNuevo){
      //int $r
-      $r = count($totalJuegos);
-      $totalJuegos[$r]= $juegoNuevo;
-      return $totalJuegos;
+     if(isset($juego)) {
+         $r = count($totalJuegos);
+        $totalJuegos[$r]= $juegoNuevo;
+         return $totalJuegos;
+     } else{
+         return $totalJuegos;
+     }
+
  }
 
 /**************************************/
@@ -400,37 +405,38 @@ function juegosGanadosSimbolo($juegosSimbolos, $simbolo){
 
 do {
     $juegos = cargarJuegos();
-     
+   
     $opcion = seleccionarOpción();
  
    
     switch ($opcion) {
         case 1:
+
          $juego = jugar();
 
          print_r($juego);
          imprimirResultado($juego);
 
-        $juegosTot = agregarJuego($juegos, $juego);
+        $juegos = agregarJuego($juegos, $juego);
         
-            break;
+        break;
         case 2:
-            $juegosTot = agregarJuego($juegos, $juego);
-            $mostraUnJuego = mostrarJuego($juegosTot);
+            $juego =[];
+            $mostraUnJuego = mostrarJuego($juegos);
             break;
         case 3:
         echo "Ingrese el nombre de un jugador: ";
         $nombreJugador = strtoupper(trim(fgets(STDIN)));	
-        $mostraJuego = primerJuegoGanado($juegosTot, $nombreJugador);
+        $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
         $i = $mostraJuego + 1;
         echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
             break;
       case 4:
         echo "Ingrese un símbolo (X o O): ";
-        $simb = trim(fgets(STDIN));
+        $simb = strtoupper( trim(fgets(STDIN)));
           
-        $number = juegosGanadosSimbolo($juegosTot, $simb);
-        $games = count($juegosTot);
+        $number = juegosGanadosSimbolo($juegos, $simb);
+        $games = count($juegos);
    //FLOAT 
         $porcentaje = ($number * 100 )/ $games;
         echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
@@ -441,7 +447,7 @@ do {
         echo "Ingrese el nombre del jugador: ";
         $nombreJugador =strtoupper( trim(fgets(STDIN)));
         
-        $jugadorResumen = resumenJugador($juegosTot, $nombreJugador);
+        $jugadorResumen = resumenJugador($juegos, $nombreJugador);
         
         $variable = 0;
         $variable1 = 0;
@@ -461,7 +467,7 @@ do {
 
 
         case 6:
-         $ordenAlfa 	= ordenarAlfabeticamente($juegosTot);
+         $ordenAlfa 	= ordenarAlfabeticamente($juegos);
 
          break;
 

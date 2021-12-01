@@ -420,8 +420,8 @@ do {
             break;
         case 3:
         echo "Ingrese el nombre de un jugador: ";
-        $nombreJugador = trim(fgets(STDIN));	
-        $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
+        $nombreJugador = strtoupper(trim(fgets(STDIN)));	
+        $mostraJuego = primerJuegoGanado($juegosTot, $nombreJugador);
         $i = $mostraJuego + 1;
         echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
             break;
@@ -461,7 +461,7 @@ do {
 
 
         case 6:
-         $ordenAlfa 	= ordenarAlfabeticamente($juegos);
+         $ordenAlfa 	= ordenarAlfabeticamente($juegosTot);
 
          break;
 

@@ -79,7 +79,7 @@ function primerJuegoGanado($partidasTotales, $nombreJugador){
           }
        }
    
-       if($i +1 == count($partidasTotales)){
+       if($i >= count($partidasTotales)){
           $flag = false;
           $indice = -1; 
        }
@@ -418,7 +418,7 @@ do {
          print_r($juego);
          imprimirResultado($juego);
 
-        $juegos = agregarJuego($juegos, $juego);
+       
         
         break;
         case 2:
@@ -426,18 +426,16 @@ do {
             $mostraUnJuego = mostrarJuego($juegos);
             break;
         case 3:
+            $juegos = agregarJuego($juegos, $juego);
         echo "Ingrese el nombre de un jugador: ";
         $nombreJugador = strtoupper(trim(fgets(STDIN)));	
         $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
-        if ($mostraJuego == -1) {
-            echo "$nombreJugador no ganó ningun juego.";
-        }else {
             $i = $mostraJuego + 1;
-        echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
-        }
+           echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
         
             break;
       case 4:
+        $juegos = agregarJuego($juegos, $juego);
         echo "Ingrese un símbolo (X o O): ";
         $simb = strtoupper( trim(fgets(STDIN)));
           
@@ -449,6 +447,7 @@ do {
         break;
     case 5:
         //variablesAuxiliares
+        $juegos = agregarJuego($juegos, $juego);
         
         echo "Ingrese el nombre del jugador: ";
         $nombreJugador =strtoupper( trim(fgets(STDIN)));
@@ -473,6 +472,7 @@ do {
 
 
         case 6:
+            $juegos = agregarJuego($juegos, $juego);
          $ordenAlfa 	= ordenarAlfabeticamente($juegos);
 
          break;

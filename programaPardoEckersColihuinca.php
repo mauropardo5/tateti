@@ -322,7 +322,7 @@ function mostrarJuego($juegos){
             if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=2 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=6){
                 $acumuladorGanador = $ganoX;
             } 
-            elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] = 1){
+            elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] == 1){
                 $acumuladorGanador = $empate;
             }
             else{

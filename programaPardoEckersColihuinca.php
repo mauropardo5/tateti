@@ -520,6 +520,10 @@ do {
 
 // 1) agregar detalle en las estructuras mostradas en pdf y la estructura del tateti
 // 2) modificar la funcion mostrarJuego para que valide el valor en primer lugar y luego acceda al juego seleccionado
+
+
+
+
 // Sin que jueguen amarelis con zuleica : 66.66%(periodico) % X y 33.33% O
 
 // 3) modificar la funcion de porcentajes para que muestre los valores correctos

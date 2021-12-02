@@ -470,6 +470,9 @@ do {
         }
 
         $games = $number + $aux;
+
+
+        
    
         $porcentaje = ($number * 100 )/ $games;
         echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";

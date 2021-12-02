@@ -129,7 +129,7 @@ function solicitarValor($min,$max){
     // $min = 1;
     //$max = 7;
     do {
-      echo "Ingrese un número entre el 1 y el 7: ";
+      echo "\nIngrese un número valido : ";
       $numeroOpcion = trim(fgets(STDIN));
       if($numeroOpcion >= $min && $numeroOpcion <= $max){
     return $numeroOpcion;
@@ -154,30 +154,25 @@ function mostrarJuego($juegos){
     $empate = "(Empate )";
     $acumuladorGanador = "";
     $t = count($juegos) ;
-
-    /**do{
-        echo "elija el numero de juego que quiere mostrar:  ";
-        $numeroDeJuego = trim(fgets(STDIN));
-    }   while ($numeroDeJuego< 1 || $numeroDeJuego > $t); **/
-
+    echo"elija el juego que desea mostrar\n";
     $numeroDeJuego=solicitarValor(0,$t);
-            $juegoSeleccionado = $juegos ;
-            $numeroAuxiliar= $numeroDeJuego -1;
-            if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=2 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=6){
+    $juegoSeleccionado = $juegos ;
+    $numeroAuxiliar= $numeroDeJuego -1;
+    if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=2 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=6){
                 $acumuladorGanador = $ganoX;
             } 
-            elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] == 1){
+    elseif($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] == 1){
                 $acumuladorGanador = $empate;
             }
-            else{
+    else{
                 $acumuladorGanador = $ganoO;
 
             }
             
               
-            echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
-            "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
-            "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"]. " puntos";
+echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
+     "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
+     "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"]. " puntos";
 
         
         /**else{
@@ -465,10 +460,17 @@ do {
         $juegos = agregarJuego($juegos, $juego);
         echo "Ingrese un símbolo (X o O): ";
         $simb = strtoupper( trim(fgets(STDIN)));
-          
+        
         $number = juegosGanadosSimbolo($juegos, $simb);
-        $games = count($juegos);
-   //FLOAT 
+        if($simb = "X"){
+            $aux=juegosGanadosSimbolo($juegos, "0");
+        }
+        elseif ($simb = "O") {
+            $aux=juegosGanadosSimbolo($juegos,"X");
+        }
+
+        $games = $number + $aux;
+   
         $porcentaje = ($number * 100 )/ $games;
         echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
         break;

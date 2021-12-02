@@ -174,12 +174,6 @@ echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador.
      "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
      "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"]. " puntos";
 
-        
-        /**else{
-            echo "ese numero de juego no se encuentra en el sistema. digite nuevamente. ";
-        } */
-       
-    
 }
 
 //
@@ -439,8 +433,6 @@ do {
          print_r($juego);
          imprimirResultado($juego);
          $juegos = agregarJuego($juegos, $juego);
-
-       
         
         break;
         case 2:
@@ -462,21 +454,19 @@ do {
         $simb = strtoupper( trim(fgets(STDIN)));
         
         $number = juegosGanadosSimbolo($juegos, $simb);
-        if($simb = "X"){
+        if($simb == "X"){
             $aux=juegosGanadosSimbolo($juegos, "0");
         }
-        elseif ($simb = "O") {
+        elseif ($simb == "O") {
             $aux=juegosGanadosSimbolo($juegos,"X");
         }
 
         $games = $number + $aux;
-
-
-        
    
         $porcentaje = ($number * 100 )/ $games;
         echo "El simbolo ". $simb. " gano el ". $porcentaje. "% de los juegos";
         break;
+    
     case 5:
         //variablesAuxiliares
         $juegos = agregarJuego($juegos, $juego);

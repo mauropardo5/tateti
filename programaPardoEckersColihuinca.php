@@ -78,7 +78,21 @@ function cargarJuegos(){
                             "jugadorCirculo"=> "MAXI" ,
                             "puntosCruz"=>1 ,
                             "puntosCirculo"=>1];
-    
+                            $coleccionDeJuegos = [];
+
+                            $jg1 = ["jugadorCruz" => "AMARILIS", "jugadorCirculo" => "MILOS",    "puntosCruz" => 1, "puntosCirculo" => 1];
+                            $jg2 = ["jugadorCruz" => "ZENDA",    "jugadorCirculo" => "AMARILIS", "puntosCruz" => 3, "puntosCirculo" => 0];
+                            $jg3 = ["jugadorCruz" => "ZENDA",    "jugadorCirculo" => "MILOS",    "puntosCruz" => 0, "puntosCirculo" => 4];
+                            $jg4 = ["jugadorCruz" => "CALIXTO",  "jugadorCirculo" => "TRUMAN",   "puntosCruz" => 1, "puntosCirculo" => 1];
+                            $jg5 = ["jugadorCruz" => "AMARILIS", "jugadorCirculo" => "MILOS",    "puntosCruz" => 5, "puntosCirculo" => 0];
+                            $jg6 = ["jugadorCruz" => "FEDORA",   "jugadorCirculo" => "CALIXTO",  "puntosCruz" => 0, "puntosCirculo" => 3];
+                            $jg7 = ["jugadorCruz" => "TRUMAN",   "jugadorCirculo" => "AMARILIS", "puntosCruz" => 4, "puntosCirculo" => 0];
+                            $jg8 = ["jugadorCruz" => "CALIXTO",  "jugadorCirculo" => "TRUMAN",   "puntosCruz" => 1, "puntosCirculo" => 1];
+                            $jg9 = ["jugadorCruz" => "TRUMAN",   "jugadorCirculo" => "FEDORA",   "puntosCruz" => 2, "puntosCirculo" => 0];
+                            $jg10= ["jugadorCruz" => "MILOS",    "jugadorCirculo" => "ZENDA",   "puntosCruz" => 1, "puntosCirculo" => 1];
+                            
+                            array_push($coleccionDeJuegos, $jg1, $jg2, $jg3, $jg4, $jg5, $jg6, $jg7, $jg8, $jg9, $jg10);
+                            
     return ($coleccionDeJuegos) ;
         }
 
@@ -98,7 +112,7 @@ function seleccionarOpción(){
         7) salir
         Elige una opción: ";
         //utilizamos una funcion para solicitar el numero correcto de retorno
-    $numero = SolicitarValor();
+    $numero = SolicitarValor(1,7);
  
 return $numero;
 }
@@ -109,11 +123,11 @@ return $numero;
  * @return int
  */
 
-function solicitarValor(){
+function solicitarValor($min,$max){
     // $min y $max nos marcan el rango de numeros que pueden seleccionarse
     // int $min , $max.
-    $min = 1;
-    $max = 7;
+    // $min = 1;
+    //$max = 7;
     do {
       echo "Ingrese un número entre el 1 y el 7: ";
       $numeroOpcion = trim(fgets(STDIN));
@@ -140,11 +154,13 @@ function mostrarJuego($juegos){
     $empate = "(Empate )";
     $acumuladorGanador = "";
     $t = count($juegos) ;
-    do{
+
+    /**do{
         echo "elija el numero de juego que quiere mostrar:  ";
         $numeroDeJuego = trim(fgets(STDIN));
-           
-        if($numeroDeJuego >=1 && $numeroDeJuego <= $t ){
+    }   while ($numeroDeJuego< 1 || $numeroDeJuego > $t); **/
+
+    $numeroDeJuego=solicitarValor(0,$t);
             $juegoSeleccionado = $juegos ;
             $numeroAuxiliar= $numeroDeJuego -1;
             if($juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]>=2 && $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"]<=6){
@@ -156,17 +172,19 @@ function mostrarJuego($juegos){
             else{
                 $acumuladorGanador = $ganoO;
 
-            }  
+            }
+            
+              
             echo "\n Juego Tateti: ". $numeroDeJuego." " . $acumuladorGanador. 
             "\n Jugador X: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCruz"] . " obtuvo ". $juegoSeleccionado[$numeroAuxiliar]["puntosCruz"] . " puntos ". 
             "\n Jugador O: ". $juegoSeleccionado[$numeroAuxiliar]["jugadorCirculo"]. " obtuvo ".  $juegoSeleccionado[$numeroAuxiliar]["puntosCirculo"]. " puntos";
 
-        }
-        else{
+        
+        /**else{
             echo "ese numero de juego no se encuentra en el sistema. digite nuevamente. ";
-        }
+        } */
        
-    }   while ($numeroDeJuego< 1 || $numeroDeJuego > $t);
+    
 }
 
 //
@@ -499,3 +517,9 @@ do {
 
 
 //comentario
+
+// 1) agregar detalle en las estructuras mostradas en pdf y la estructura del tateti
+// 2) modificar la funcion mostrarJuego para que valide el valor en primer lugar y luego acceda al juego seleccionado
+// Sin que jueguen amarelis con zuleica : 66.66%(periodico) % X y 33.33% O
+
+// 3) modificar la funcion de porcentajes para que muestre los valores correctos

@@ -126,7 +126,8 @@ return $numero;
 function solicitarValor($min,$max){
     // $min y $max nos marcan el rango de numeros que pueden seleccionarse
     // int $min , $max.
-    
+    // $min = 1;
+    //$max = 7;
     do {
       echo "\nIngrese un número valido : ";
       $numeroOpcion = trim(fgets(STDIN));
@@ -520,3 +521,17 @@ do {
 
 
 
+//comentario
+
+// 1) agregar detalle en las estructuras mostradas en pdf y la estructura del tateti
+// 2) modificar la funcion mostrarJuego para que valide el valor en primer lugar y luego acceda al juego seleccionado
+
+
+
+
+// Sin que jueguen amarelis con zuleica : 66.66%(periodico) % X y 33.33% O
+
+// 3) modificar la funcion de porcentajes para que muestre los valores correctos
+
+
+// CORRECCIONES REALIZADAS

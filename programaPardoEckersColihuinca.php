@@ -135,9 +135,9 @@ function solicitarValor(){
  */
 function mostrarJuego($juegos){
     // STRING $ganoX,$ganoO, $empate
-    $ganoX = "gano X ";
-    $ganoO= "gano O ";
-    $empate = "Empate ";
+    $ganoX = "(gano X )";
+    $ganoO= "(gano O )";
+    $empate = "(Empate )";
     $acumuladorGanador = "";
     $t = count($juegos) ;
     do{

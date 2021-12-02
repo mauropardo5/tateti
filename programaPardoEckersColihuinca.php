@@ -226,15 +226,15 @@ function primerJuegoGanado($partidasTotales, $nombreJugador){
           }
        }
    
-       if($i >= count($partidasTotales)){
+       elseif($i == count($partidasTotales)-1){
           $flag = false;
           $indice = -1; 
        }
        $i =$i+1;
-
+       
       }
-    while($flag);
-     
+   
+      while($flag);
 return $indice;
    }
 
@@ -295,6 +295,7 @@ function resumenJugador($juegosTotales5,$nombreJugador){
      $resumenJ["puntos"]=$puntos;
  
      return $resumenJ;
+    
  }
  //
  //
@@ -418,6 +419,7 @@ print_r($juegosT);
  * array $juegos, $juego , $mostrarUnJuego, $jugadorResumen, 
  */
 //Inicialización de variables:
+
 $juego=null;
 do {
     $juegos = cargarJuegos();
@@ -439,15 +441,23 @@ do {
             $juegos = agregarJuego($juegos, $juego);
             $mostraUnJuego = mostrarJuego($juegos);
             break;
+
         case 3:
-            $juegos = agregarJuego($juegos, $juego);
+
+        $juegos = agregarJuego($juegos, $juego);
         echo "Ingrese el nombre de un jugador: ";
         $nombreJugador = strtoupper(trim(fgets(STDIN)));	
         $mostraJuego = primerJuegoGanado($juegos, $nombreJugador);
-            $i = $mostraJuego + 1;
+        $i = $mostraJuego + 1;
+        if($i==0){
+            echo"$nombreJugador no jugo ninguna partida";
+        }else{
            echo "la primer partida que gano ". $nombreJugador. ", fue la partida numero: ". $i ."\n";
-        
-            break;
+        }
+            
+        break;
+           
+               
       case 4:
         $juegos = agregarJuego($juegos, $juego);
         echo "Ingrese un símbolo (X o O): ";
@@ -481,11 +491,11 @@ do {
         $variable2 = 0;
         $variable3 = 0;
             if($jugadorResumen["nombre"] == $nombreJugador){
-              $variable = $jugadorResumen["juegosGanados"];
-              $variable1 = $jugadorResumen["juegosPerdidos"];
-              $variable2 = $jugadorResumen["juegosEmpatados"];
-              $variable3 = $jugadorResumen["puntos"];
-             }
+                $variable = $jugadorResumen["juegosGanados"];
+                $variable1 = $jugadorResumen["juegosPerdidos"];
+                $variable2 = $jugadorResumen["juegosEmpatados"];
+                $variable3 = $jugadorResumen["puntos"];
+                }
 
          echo "Jugador: ". $nombreJugador. "\nGano: ". $variable. " Juegos". "\nPerdió: ". $variable1. " Juegos". "\nEmpato: ". $variable2. " Juegos". "\nTotal de puntos acumulados: ". $variable3;
         
@@ -494,6 +504,7 @@ do {
 
 
         case 6:
+
             $juegos = agregarJuego($juegos, $juego);
          $ordenAlfa 	= ordenarAlfabeticamente($juegos);
 
@@ -501,9 +512,8 @@ do {
 
          case 7;
          echo "Fin del programa";
+         
          break;
-        
- 
  
     }
 } while ($opcion != 7 );
